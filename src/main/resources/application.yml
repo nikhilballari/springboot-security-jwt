@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: springboot-dashboardapi
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://localhost:3306/dashboarddb
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health, beans, metrics"
+      base-path: "/management-dashboard"
+  endpoint:
+    health:
+      show-details: always
+  tracing:
+    enabled: true
+
+dummyService:
+  port: 8081
+  address: 127.0.0.1
+
+logging:
+  level:
+    com:
+      dashboardapi:
+        demo: DEBUG
